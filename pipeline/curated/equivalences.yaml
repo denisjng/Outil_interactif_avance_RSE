@@ -15,7 +15,7 @@
   url: ""
 
 - id: smartphone
-  libelle: "recharges complètes d'une batterie de smartphone (15 Wh)"
+  libelle: "recharges de smartphone"
   indicateur: energie
   parUnite: 15
   source: "Unité de comparaison fixée par l'outil : batterie de 15 Wh, ordre de grandeur d'un smartphone récent"

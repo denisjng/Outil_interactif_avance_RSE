@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Encart } from "../components/Encart";
+import { Replier } from "../components/Replier";
 import type { DonneesChargees } from "../data/charger";
 import { estimer } from "../engine/estimer";
 import { formater } from "../engine/format";
@@ -17,31 +17,28 @@ export function Leviers({ d }: { d: DonneesChargees }) {
   const base = scenarioDepart(donnees);
   const avant = carbone(base, donnees);
   const apres = carbone(appliquerLeviers(base, actifs, donnees), donnees);
+  const gain = avant > 0 ? Math.round((1 - apres / avant) * 100) : 0;
   const modele = donnees.modeles.find((m) => m.id === base.modeleId)!;
-  const tache = donnees.taches.find((t) => t.id === base.tacheId)!;
   const pays = donnees.pays.find((p) => p.id === base.paysId)!;
 
   const barres = [
-    { libelle: "Point de départ", g: avant, couleur: "#9AA39E", fort: false },
-    ...LEVIERS.map((l) => ({ libelle: `Seulement : ${l.libelle.toLowerCase()}`, g: carbone(appliquerLeviers(base, [l.id], donnees), donnees), couleur: "#334155", fort: false })),
-    { libelle: "Votre sélection", g: apres, couleur: "#14532D", fort: true },
+    { libelle: "Au départ", g: avant, couleur: "#9AA39E", fort: false },
+    ...LEVIERS.map((l) => ({ libelle: l.libelle, g: carbone(appliquerLeviers(base, [l.id], donnees), donnees), couleur: "#334155", fort: false })),
+    { libelle: "Vos gestes combinés", g: apres, couleur: "#14532D", fort: true },
   ];
   const basculer = (id: LevierId) => setActifs((a) => (a.includes(id) ? a.filter((x) => x !== id) : [...a, id]));
 
   return (
-    <main className="mx-auto flex max-w-[1240px] flex-col gap-8 px-4 pb-14 pt-10 sm:px-8">
-      <div className="max-w-3xl">
-        <p className="mb-2 text-[13px] font-semibold uppercase tracking-widest text-energie">Leviers frugaux</p>
-        <h1 className="mb-3 font-titre text-4xl font-bold leading-tight">Même besoin, empreinte différente</h1>
-        <p className="text-lg text-secondaire">
-          Point de départ : {modele.nom}, tâche « {tache.nom.toLowerCase()} », 20 requêtes par jour, data center
-          en {pays.nom === "États-Unis" ? "aux États-Unis" : pays.nom}. Activez
-          les leviers pour voir ce que chacun change.
+    <main className="mx-auto flex max-w-[1180px] flex-col gap-5 px-4 pb-10 pt-6 sm:px-8">
+      <div>
+        <h1 className="font-titre text-[28px] font-bold leading-tight sm:text-4xl">Comment réduire l'impact&nbsp;?</h1>
+        <p className="mt-1 text-secondaire">
+          Exemple : {modele.nom}, 20 questions par jour, serveurs {pays.id === "US" ? "aux États-Unis" : `en ${pays.nom}`}. Choisissez vos gestes.
         </p>
       </div>
 
-      <div className="flex flex-wrap items-start gap-6">
-        <section aria-label="Leviers" className="flex min-w-0 flex-[1_1_320px] flex-col gap-3">
+      <div className="grid gap-5 lg:grid-cols-[3fr_2fr]">
+        <section aria-label="Gestes" className="grid gap-3 sm:grid-cols-2">
           {LEVIERS.map((l) => {
             const on = actifs.includes(l.id);
             return (
@@ -50,65 +47,60 @@ export function Leviers({ d }: { d: DonneesChargees }) {
                 type="button"
                 aria-pressed={on}
                 onClick={() => basculer(l.id)}
-                className={`flex min-h-16 w-full items-center gap-3.5 rounded-xl border px-4 py-3.5 text-left ${
+                className={`flex min-h-11 items-start gap-3 rounded-xl border p-4 text-left ${
                   on ? "border-encre bg-encre text-white" : "border-[#C9CEC7] bg-white text-encre hover:border-encre"
                 }`}
               >
-                <span aria-hidden="true" className={`inline-flex h-6 w-6 flex-none items-center justify-center rounded-md font-bold ${
+                <span aria-hidden="true" className={`mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded font-bold ${
                   on ? "bg-white text-encre" : "border-2 border-[#9AA39E]"}`}>{on ? "✓" : ""}</span>
                 <span className="flex flex-col gap-0.5">
-                  <span className="font-semibold">{l.libelle}</span>
-                  <span className="text-[13px] opacity-80">{l.detail}</span>
+                  <span className="font-semibold leading-snug">{l.libelle}</span>
+                  <span className="text-[13px] leading-snug opacity-80">{l.detail}</span>
                 </span>
               </button>
             );
           })}
         </section>
 
-        <section aria-label="Comparaison" className="flex min-w-0 flex-[999_1_560px] flex-col gap-5 rounded-xl border border-filet bg-white p-6">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-[13px] text-secondaire">Carbone sur un an, une personne</p>
-              <p className="font-chiffre text-4xl font-semibold leading-tight">{formater(apres, "gCO2e")}</p>
-              <p className="text-sm text-secondaire">au lieu de {formater(avant, "gCO2e")}</p>
-            </div>
-            <p data-testid="gain" className="font-titre text-5xl font-bold leading-none text-gain">
-              −{Math.round((1 - apres / avant) * 100)} %
-            </p>
+        <section aria-label="Résultat" aria-live="polite" className="flex flex-col justify-center gap-1 rounded-xl border border-filet bg-white p-5">
+          <p className="text-sm text-secondaire">CO2 sur un an, pour une personne</p>
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <p className="font-chiffre text-4xl font-semibold leading-tight">{formater(apres, "gCO2e")}</p>
+            <p data-testid="gain" className="font-titre text-4xl font-bold leading-none text-gain">−{gain} %</p>
           </div>
-          <div className="flex flex-col gap-3.5">
-            {barres.map((b) => (
-              <div key={b.libelle} data-testid="barre" className="flex flex-col gap-1">
-                <p className="flex justify-between gap-2 text-sm">
-                  <span className={b.fort ? "font-bold" : ""}>{b.libelle}</span>
-                  <span className="font-chiffre">{formater(b.g, "gCO2e")}</span>
-                </p>
-                <div className="h-3.5 rounded bg-[#EEF0EC]" aria-hidden="true">
-                  <div className="h-3.5 rounded" style={{ background: b.couleur, width: `${Math.max(1, (b.g / avant) * 100).toFixed(1)}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="text-sm text-secondaire">au lieu de {formater(avant, "gCO2e")}</p>
         </section>
       </div>
 
-      <div className="flex flex-wrap gap-4">
-        <Encart ton="sombre" titre="Attention à l'effet rebond" className="flex-[1_1_360px]">
-          <p className="text-[#DDE3DF]">
-            Un modèle plus efficace coûte moins cher, donc on s'en sert davantage. C'est le paradoxe de Jevons : les gains
-            par requête peuvent être annulés par la hausse du nombre de requêtes. Le levier « moins de requêtes » est le
-            seul qui agit sur le volume.
-          </p>
-        </Encart>
-        <Encart ton="clair" titre="Les 3 principes de l'IA frugale" className="flex-[1_1_360px]">
-          <ol className="flex list-decimal flex-col gap-1.5 pl-5 text-[#2F3A35]">
-            <li>Démontrer que l'IA est nécessaire, face à une solution moins consommatrice.</li>
-            <li>Adopter les bonnes pratiques qui réduisent les impacts.</li>
-            <li>Questionner les usages pour rester dans les limites planétaires.</li>
-          </ol>
-          <p className="text-[13px] text-secondaire">Référentiel général pour l'IA frugale, ministère de la Transition écologique.</p>
-        </Encart>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <p className="rounded-xl bg-encre p-4 text-[15px] text-[#DDE3DF]">
+          <strong className="text-white">Attention à l'effet rebond.</strong> Une IA plus efficace incite à s'en servir
+          plus. Seul le geste « moins de questions » réduit le volume.
+        </p>
+        <p className="rounded-xl border border-filet bg-white p-4 text-[15px]">
+          <strong>La bonne question d'abord :</strong> ai-je vraiment besoin d'une IA pour ça, ou un moteur de recherche suffit-il&nbsp;?
+        </p>
       </div>
+
+      <Replier titre="Effet de chaque geste pris seul">
+        <div className="flex flex-col gap-3">
+          {barres.map((b) => (
+            <div key={b.libelle} data-testid="barre" className="flex flex-col gap-1">
+              <p className="flex justify-between gap-2 text-sm">
+                <span className={b.fort ? "font-bold" : ""}>{b.libelle}</span>
+                <span className="font-chiffre">{formater(b.g, "gCO2e")}</span>
+              </p>
+              <div className="h-3 rounded bg-[#EEF0EC]" aria-hidden="true">
+                <div className="h-3 rounded" style={{ background: b.couleur, width: `${Math.max(1, avant > 0 ? (b.g / avant) * 100 : 0).toFixed(1)}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[13px] text-secondaire">
+          Principes de l'IA frugale (ministère de la Transition écologique) : démontrer que l'IA est nécessaire, adopter
+          les bonnes pratiques, questionner les usages pour rester dans les limites planétaires.
+        </p>
+      </Replier>
     </main>
   );
 }

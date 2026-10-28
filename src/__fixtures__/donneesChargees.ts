@@ -22,7 +22,7 @@ export const claimsTest: Claim[] = [
     postes: postes({ methodePublique: "exclu" }), fmti: 35, fmtiEnvironnement: { energie: false, carbone: false, eau: false } },
   { id: "mistral", acteur: "Mistral AI", modele: "Mistral Large 2", date: "juillet 2025", perimetre: "Réponse de 400 tokens",
     energieWh: null, carboneG: 1.14, eauMl: 45, source: "https://mistral.ai",
-    postes: postes({ fabrication: "inclus", methodePublique: "inclus" }), fmti: 18, fmtiEnvironnement: null },
+    postes: postes({ fabrication: "inclus", methodePublique: "inclus" }), fmti: 18, fmtiEnvironnement: { energie: false, carbone: false, eau: false } },
 ];
 
 export const facteursTest: FacteurEquivalence[] = [

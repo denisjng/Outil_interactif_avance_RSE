@@ -3,10 +3,10 @@ import type { Donnees, Entrees } from "../../engine/types";
 export type LevierId = "petit-modele" | "france" | "court" | "moitie";
 
 export const LEVIERS: { id: LevierId; libelle: string; detail: string }[] = [
-  { id: "petit-modele", libelle: "Prendre un modèle plus petit", detail: "Le plus petit modèle ouvert du catalogue suffit pour beaucoup de tâches" },
-  { id: "france", libelle: "Héberger en France", detail: "Électricité bas carbone, mais attention à l'eau et au foncier" },
-  { id: "court", libelle: "Poser des questions courtes", detail: "Une question brève appelle une réponse plus courte" },
-  { id: "moitie", libelle: "Faire deux fois moins de requêtes", detail: "Regrouper ses questions, éviter les relances" },
+  { id: "petit-modele", libelle: "Prendre un modèle plus petit", detail: "Souvent suffisant pour les questions simples" },
+  { id: "france", libelle: "Héberger en France", detail: "Électricité peu carbonée" },
+  { id: "court", libelle: "Poser des questions courtes", detail: "Réponses plus courtes, moins de calcul" },
+  { id: "moitie", libelle: "Poser deux fois moins de questions", detail: "Regrouper ses demandes, éviter les relances" },
 ];
 
 // Identifiant voulu s'il existe dans les données, sinon le premier disponible.
