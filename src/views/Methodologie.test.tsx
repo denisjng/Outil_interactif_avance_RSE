@@ -1,27 +1,33 @@
 import { render, screen, within } from "@testing-library/react";
 import { donneesChargeesTest } from "../__fixtures__/donneesChargees";
-import { ecartMedian, pointsValidation } from "./Methodologie";
-import { Methodologie } from "./Methodologie";
+import { ecartMedian, Methodologie, pointsValidation } from "./Methodologie";
 
-describe("Methodologie", () => {
+describe("Méthode", () => {
+  it("un résumé en 3 blocs, le détail en 4 sections repliées", () => {
+    render(<Methodologie d={donneesChargeesTest} />);
+    expect(screen.getAllByTestId("resume")).toHaveLength(3);
+    const replies = document.querySelectorAll("details");
+    expect(replies).toHaveLength(4);
+    replies.forEach((r) => expect(r.open).toBe(false));
+  });
+
   it("le tableau des hypothèses affiche les valeurs des données, sans texte entre crochets", () => {
     render(<Methodologie d={donneesChargeesTest} />);
-    const tableau = screen.getByRole("table", { name: /Hypothèses/ });
+    const tableau = screen.getByRole("table", { name: /Hypothèses/, hidden: true });
     expect(tableau.textContent).not.toMatch(/\[/);
-    // paramètres actifs du modèle fermé de test : 44 à 132 Md
-    expect(within(tableau).getByRole("row", { name: /Paramètres actifs/ }).textContent).toContain("132");
+    expect(within(tableau).getByRole("row", { name: /Paramètres actifs/, hidden: true }).textContent).toContain("132");
   });
 
   it("une ligne par source", () => {
     render(<Methodologie d={donneesChargeesTest} />);
-    expect(within(screen.getByRole("list", { name: "Sources" })).getAllByRole("listitem")).toHaveLength(8);
+    expect(within(screen.getByRole("list", { name: "Sources", hidden: true })).getAllByRole("listitem", { hidden: true })).toHaveLength(8);
   });
 
-  it("graphique de validation légendé avec l'écart médian", () => {
+  it("graphique de comparaison légendé avec l'écart médian", () => {
     render(<Methodologie d={donneesChargeesTest} />);
-    const figure = screen.getByRole("figure");
+    const figure = screen.getByRole("figure", { hidden: true });
     expect(within(figure).getByText(/écart médian/)).toBeInTheDocument();
-    expect(within(figure).getByRole("img")).toHaveAttribute("aria-label");
+    expect(within(figure).getByRole("img", { hidden: true })).toHaveAttribute("aria-label");
   });
 
   it("pointsValidation et ecartMedian", () => {

@@ -1,6 +1,6 @@
 import * as Plot from "@observablehq/plot";
 import { useEffect, useMemo, useRef } from "react";
-import { Encart } from "../components/Encart";
+import { Replier } from "../components/Replier";
 import type { DonneesChargees } from "../data/charger";
 import { estimer } from "../engine/estimer";
 import type { Donnees, Triplet } from "../engine/types";
@@ -13,12 +13,10 @@ const ETAPES = [
   { n: "05", titre: "Passage à l'échelle", formule: "par requête × requêtes/jour\n× 365 × utilisateurs", source: "Vos réglages" },
 ];
 
-const LIMITES = [
-  "L'entraînement des modèles n'est pas compté : seule l'utilisation (inférence) l'est.",
-  "Les paramètres des modèles fermés sont estimés par EcoLogits, pas publiés.",
-  "Le réseau et les terminaux ne sont pas inclus.",
-  "L'intensité carbone est une moyenne annuelle par pays (CO2 de la production, Ember), pas l'heure réelle de la requête.",
-  "Les impacts locaux (foncier, minerais, stress hydrique) sont signalés, pas chiffrés.",
+const RESUME = [
+  { titre: "Comment on calcule", texte: "On estime l'électricité nécessaire pour générer chaque réponse, selon la taille du modèle et la longueur de la réponse (méthode ouverte EcoLogits)." },
+  { titre: "D'où viennent les données", texte: "Des données publiques : conversations réelles de Compar:IA, électricité par pays (Ember), eau (WRI), chiffres des entreprises." },
+  { titre: "Ce qu'on ne sait pas", texte: "L'entraînement des modèles, le réseau et les téléphones ne sont pas comptés. La taille des modèles fermés est estimée." },
 ];
 
 const nombre = (x: number) => x.toLocaleString("fr-FR", { maximumSignificantDigits: 3 });
@@ -88,35 +86,38 @@ export function Methodologie({ d }: { d: DonneesChargees }) {
   const points = useMemo(() => pointsValidation(d), [d]);
 
   return (
-    <main className="mx-auto flex max-w-[1240px] flex-col gap-8 px-4 pb-14 pt-10 sm:px-8">
-      <div className="max-w-3xl">
-        <p className="mb-2 text-[13px] font-semibold uppercase tracking-widest text-energie">Méthodologie</p>
-        <h1 className="mb-3 font-titre text-4xl font-bold leading-tight">Comment chaque chiffre est calculé</h1>
-        <p className="text-lg text-secondaire">
-          Un outil qui reproche aux entreprises leur opacité doit montrer toutes ses hypothèses. Voici la chaîne de
-          calcul, les sources et ce que l'outil ne sait pas faire.
-        </p>
+    <main className="mx-auto flex max-w-[1180px] flex-col gap-5 px-4 pb-10 pt-6 sm:px-8">
+      <div>
+        <h1 className="font-titre text-[28px] font-bold leading-tight sm:text-4xl">Comment on calcule</h1>
+        <p className="mt-1 text-secondaire">Un outil qui reproche aux entreprises leur opacité doit montrer toutes ses hypothèses.</p>
       </div>
 
-      <section aria-labelledby="t-chaine" className="flex flex-col gap-4">
-        <h2 id="t-chaine" className="font-titre text-2xl font-bold">La chaîne de calcul (méthode EcoLogits)</h2>
-        <ol className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-3">
-          {ETAPES.map((e) => (
-            <li key={e.n} className="flex flex-col gap-2 rounded-xl border border-filet bg-white p-4">
-              <span className="font-chiffre text-[13px] font-semibold text-energie">{e.n}</span>
-              <span className="font-semibold">{e.titre}</span>
-              <code className="whitespace-pre-wrap rounded-md bg-fond p-2 font-chiffre text-[13px]">{e.formule}</code>
-              <span className="text-[13px] text-secondaire">{e.source}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
+      <div className="grid gap-3 sm:grid-cols-3">
+        {RESUME.map((r) => (
+          <section key={r.titre} data-testid="resume" className="flex flex-col gap-1.5 rounded-xl border border-filet bg-white p-4">
+            <h2 className="font-titre text-base font-bold">{r.titre}</h2>
+            <p className="text-[15px] text-[#2F3A35]">{r.texte}</p>
+          </section>
+        ))}
+      </div>
 
-      <div className="flex flex-wrap items-start gap-6">
-        <section className="flex min-w-0 flex-[999_1_560px] flex-col gap-3 rounded-xl border border-filet bg-white p-6">
-          <h2 id="t-hyp" className="font-titre text-2xl font-bold">Hypothèses et fourchettes</h2>
+      <div className="flex flex-col gap-3">
+        <Replier titre="La chaîne de calcul, étape par étape">
+          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {ETAPES.map((e) => (
+              <li key={e.n} className="flex flex-col gap-1.5 rounded-lg bg-fond p-3">
+                <span className="font-chiffre text-xs font-semibold text-energie">{e.n}</span>
+                <span className="text-sm font-semibold">{e.titre}</span>
+                <code className="whitespace-pre-wrap font-chiffre text-xs">{e.formule}</code>
+                <span className="text-xs text-secondaire">{e.source}</span>
+              </li>
+            ))}
+          </ol>
+        </Replier>
+
+        <Replier titre="Hypothèses et fourchettes">
           <div className="overflow-x-auto">
-            <table aria-labelledby="t-hyp" className="w-full min-w-[560px] border-collapse text-sm">
+            <table aria-label="Hypothèses et fourchettes" className="w-full min-w-[560px] border-collapse text-sm">
               <thead>
                 <tr className="border-b-2 border-encre text-left">
                   <th scope="col" className="px-2.5 py-2">Paramètre</th>
@@ -142,53 +143,39 @@ export function Methodologie({ d }: { d: DonneesChargees }) {
             </table>
           </div>
           <p className="text-[13px] text-secondaire">
-            Les bornes se combinent : toutes les valeurs basses donnent le bas de la fourchette, toutes les hautes le haut.
+            Toutes les valeurs basses donnent le bas de la fourchette, toutes les hautes le haut.
           </p>
-        </section>
+        </Replier>
 
-        <section className="flex min-w-0 flex-[1_1_340px] flex-col gap-3 rounded-xl border border-filet bg-white p-6">
-          <h2 className="font-titre text-2xl font-bold">Un angle mort : la lecture de la question</h2>
-          <p className="text-[13px] text-secondaire">
-            La fidélité du moteur à EcoLogits est vérifiée par des tests (écart inférieur à 5 %). Ce graphique pose une
-            autre question : que donne la méthode face à des mesures réelles ?
-          </p>
-          <figure className="flex flex-col gap-2">
-            <Nuage points={points} />
-            <figcaption className="text-[13px] text-secondaire">
-              {points.length} modèles ouverts mesurés par AI Energy Score (GPU H100, 10 tokens générés). Diagonale :
-              estimation égale à la mesure ; écart médian entre les deux : {ecartMedian(points)} %. La mesure inclut la
-              lecture du texte d'entrée, un long document, que la méthode EcoLogits ne compte pas : elle ne chiffre que
-              les tokens générés.
-            </figcaption>
-          </figure>
-          <p className="text-[13px] text-secondaire">
-            Les deux protocoles ne se comparent donc pas directement. L'écart d'un à deux ordres de grandeur montre
-            qu'une question longue (un document collé, un long historique de conversation) coûte plus que ce que le
-            simulateur affiche : ses chiffres sont plutôt un plancher.
-          </p>
-        </section>
-      </div>
+        <Replier titre="Un angle mort : la lecture de la question">
+          <div className="grid gap-4 lg:grid-cols-[auto_1fr] lg:items-start">
+            <figure className="flex flex-col gap-2">
+              <Nuage points={points} />
+              <figcaption className="max-w-md text-[13px] text-secondaire">
+                {points.length} modèles ouverts mesurés par AI Energy Score (GPU H100, 10 tokens générés). Diagonale :
+                estimation égale à la mesure ; écart médian entre les deux : {ecartMedian(points)} %. La mesure inclut la
+                lecture du texte d'entrée, un long document, que la méthode EcoLogits ne compte pas.
+              </figcaption>
+            </figure>
+            <p className="text-[15px]">
+              La fidélité du moteur à EcoLogits est vérifiée par des tests (écart inférieur à 5 %). Face à des mesures
+              réelles, l'écart est d'un à deux ordres de grandeur : la méthode ne chiffre que la réponse, pas la lecture
+              de la question. Une question longue (document collé, long historique) coûte donc plus que ce que le
+              simulateur affiche : ses chiffres sont plutôt un plancher.
+            </p>
+          </div>
+        </Replier>
 
-      <div className="flex flex-wrap items-start gap-6">
-        <section className="flex min-w-0 flex-[1_1_520px] flex-col gap-3">
-          <h2 id="t-src" className="font-titre text-2xl font-bold">Sources et licences</h2>
-          <ul aria-label="Sources" className="flex flex-col gap-2">
+        <Replier titre="Sources et licences">
+          <ul aria-label="Sources" className="grid gap-2 sm:grid-cols-2">
             {d.sources.map((s) => (
-              <li key={s.source} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-lg border border-filet bg-white px-4 py-3">
-                <a href={s.url} className="font-semibold">{s.source}</a>
-                <span className="rounded-full bg-[#EEF0EC] px-2 py-0.5 font-chiffre text-xs text-[#2F3A35]">
-                  {s.licence} · {s.extrait_le}
-                </span>
+              <li key={s.source} className="flex flex-col gap-1 rounded-lg bg-fond px-3 py-2">
+                <a href={s.url} className="text-sm font-semibold">{s.source}</a>
+                <span className="font-chiffre text-xs text-secondaire">{s.licence} · extrait le {s.extrait_le}</span>
               </li>
             ))}
           </ul>
-        </section>
-
-        <Encart ton="sombre" titre="Ce que l'outil ne sait pas faire" className="min-w-0 flex-[1_1_400px]">
-          <ul className="flex list-disc flex-col gap-2 pl-5 text-[#DDE3DF]">
-            {LIMITES.map((l) => <li key={l}>{l}</li>)}
-          </ul>
-        </Encart>
+        </Replier>
       </div>
     </main>
   );
