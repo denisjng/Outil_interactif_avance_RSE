@@ -92,6 +92,13 @@ export function Simulateur({ d }: { d: DonneesChargees }) {
         <p className="mt-1 text-secondaire">Réglez votre usage, le résultat se met à jour tout seul.</p>
       </div>
 
+      {voiture && (
+          <p data-testid="phrase" aria-live="polite" className="sticky top-0 z-20 -mx-4 bg-encre px-5 py-3 font-titre text-base font-medium leading-snug text-white shadow-md sm:static sm:mx-0 sm:rounded-xl sm:py-4 sm:text-2xl sm:shadow-none">
+            Sur un an, {choixEchelle.sujet} émet autant de CO2 que{" "}
+            <strong data-testid="equivalence" className="font-chiffre text-[#FBBF77]">{compact(voiture.valeur)}</strong>{" "}
+            {voiture.libelle}.
+          </p>
+        )}
       <section aria-label="Votre usage" className="grid gap-4 rounded-xl border border-filet bg-white p-4 sm:grid-cols-2 lg:grid-cols-3">
         <ListeDeroulante
           id="modele"
@@ -134,14 +141,7 @@ export function Simulateur({ d }: { d: DonneesChargees }) {
           valeur={echelle} onChange={setEchelle} />
       </section>
 
-      <section aria-label="Résultat sur un an" aria-live="polite" className="flex flex-col gap-4">
-        {voiture && (
-          <p data-testid="phrase" className="rounded-xl bg-encre px-5 py-4 font-titre text-xl font-medium leading-snug text-white sm:text-2xl">
-            Sur un an, {choixEchelle.sujet} émet autant de CO2 que{" "}
-            <strong data-testid="equivalence" className="font-chiffre text-[#FBBF77]">{compact(voiture.valeur)}</strong>{" "}
-            {voiture.libelle}.
-          </p>
-        )}
+      <section aria-label="Résultat sur un an" className="flex flex-col gap-4">
         <div className="grid gap-4 sm:grid-cols-3">
           <Tuile titre="Électricité" couleur="#B45309" unite="Wh" total={r.energieWh}
             aide="Électricité consommée par les serveurs pour répondre, refroidissement compris."

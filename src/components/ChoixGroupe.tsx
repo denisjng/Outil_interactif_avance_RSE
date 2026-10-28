@@ -14,7 +14,9 @@ export function ChoixGroupe<T extends string>({
   return (
     <fieldset className="flex min-w-0 flex-col gap-1.5">
       <legend className="mb-1.5 text-sm font-semibold">{legende}</legend>
-      <div className={segment ? "grid auto-cols-fr grid-flow-col gap-1 rounded-lg border border-[#C9CEC7] bg-fond p-1" : "flex flex-wrap gap-2"}>
+      <div className={segment
+        ? `grid gap-1 rounded-lg border border-[#C9CEC7] bg-fond p-1 ${options.length > 3 ? "grid-cols-2 sm:grid-flow-col sm:auto-cols-fr sm:grid-cols-none" : "auto-cols-fr grid-flow-col"}`
+        : "flex flex-wrap gap-2"}>
         {options.map((o) => {
           const actif = o.id === valeur;
           const style = segment
