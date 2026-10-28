@@ -18,6 +18,8 @@ export function Leviers({ d }: { d: DonneesChargees }) {
   const avant = carbone(base, donnees);
   const apres = carbone(appliquerLeviers(base, actifs, donnees), donnees);
   const modele = donnees.modeles.find((m) => m.id === base.modeleId)!;
+  const tache = donnees.taches.find((t) => t.id === base.tacheId)!;
+  const pays = donnees.pays.find((p) => p.id === base.paysId)!;
 
   const barres = [
     { libelle: "Point de départ", g: avant, couleur: "#9AA39E", fort: false },
@@ -32,7 +34,8 @@ export function Leviers({ d }: { d: DonneesChargees }) {
         <p className="mb-2 text-[13px] font-semibold uppercase tracking-widest text-energie">Leviers frugaux</p>
         <h1 className="mb-3 font-titre text-4xl font-bold leading-tight">Même besoin, empreinte différente</h1>
         <p className="text-lg text-secondaire">
-          Point de départ : {modele.nom}, en conversation, 20 requêtes par jour, data center aux États-Unis. Activez
+          Point de départ : {modele.nom}, tâche « {tache.nom.toLowerCase()} », 20 requêtes par jour, data center
+          en {pays.nom === "États-Unis" ? "aux États-Unis" : pays.nom}. Activez
           les leviers pour voir ce que chacun change.
         </p>
       </div>

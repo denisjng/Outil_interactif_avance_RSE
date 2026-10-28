@@ -20,7 +20,8 @@ const nombre = (x: number) => x.toLocaleString("fr-FR", { maximumSignificantDigi
 export function Simulateur({ d }: { d: DonneesChargees }) {
   const { donnees } = d;
   const [modeleId, setModele] = useState(() => (donnees.modeles.find((m) => !m.ouvert) ?? donnees.modeles[0]).id);
-  const [tacheId, setTache] = useState("conversation");
+  const [tacheId, setTache] = useState(() =>
+    donnees.taches.some((t) => t.id === "conversation") ? "conversation" : donnees.taches[0].id);
   const [requetes, setRequetes] = useState(20);
   const [paysId, setPays] = useState(() => (donnees.pays.some((p) => p.id === "US") ? "US" : donnees.pays[0].id));
   const [echelle, setEchelle] = useState<EchelleId>("moi");

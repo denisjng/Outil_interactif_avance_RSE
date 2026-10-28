@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Layout } from "./app/Layout";
 import { useRoute } from "./app/route";
+import { VueProtegee } from "./app/VueProtegee";
 import * as charger from "./data/charger";
 import type { DonneesChargees } from "./data/charger";
 import { Discours } from "./views/Discours";
@@ -40,7 +41,11 @@ export default function App() {
           </button>
         </div>
       )}
-      {etat.statut === "pret" && <Vue d={etat.d} />}
+      {etat.statut === "pret" && (
+        <VueProtegee key={route}>
+          <Vue d={etat.d} />
+        </VueProtegee>
+      )}
     </Layout>
   );
 }

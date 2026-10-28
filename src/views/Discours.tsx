@@ -94,7 +94,7 @@ export function Discours({ d }: { d: DonneesChargees }) {
               <span className="text-xs text-secondaire">EcoLogits</span>
             </div>
             <p className="text-[13px] text-secondaire">
-              {modele.nom}, {tache.tokens.central} tokens, data center aux États-Unis, recalculé par ce site
+              {modele.nom}, {tache.tokens.central} tokens, data center : {donnees.pays.find((p) => p.id === paysId)!.nom}, recalculé par ce site
             </p>
             <Valeurs
               e={fourchette(r.energieParRequeteWh, "Wh")}
