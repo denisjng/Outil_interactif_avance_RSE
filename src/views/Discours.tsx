@@ -109,7 +109,7 @@ export function Discours({ d }: { d: DonneesChargees }) {
       <section aria-labelledby="t-perim" className="flex flex-col gap-4 rounded-xl border border-filet bg-white p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 id="t-perim" className="font-titre text-2xl font-bold">Qui compte quoi ?</h2>
+            <h2 id="t-perim" className="font-titre text-2xl font-bold">Qui compte quoi&nbsp;?</h2>
             <p className="text-[15px] text-secondaire">Le périmètre de chaque chiffre, poste par poste. Chaque badge renvoie à sa source.</p>
           </div>
           <p className="flex flex-wrap gap-3 text-[13px]">

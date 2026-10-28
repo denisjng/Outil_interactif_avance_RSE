@@ -1,5 +1,21 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import type { Route } from "./route";
+
+// poids.json est écrit au build par scripts/budget.mjs ; absent en développement.
+function usePoids(): number | null {
+  const [ko, setKo] = useState<number | null>(null);
+  useEffect(() => {
+    let actif = true;
+    fetch(`${import.meta.env.BASE_URL}poids.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((p: { ko?: number } | null) => actif && typeof p?.ko === "number" && setKo(p.ko))
+      .catch(() => {});
+    return () => {
+      actif = false;
+    };
+  }, []);
+  return ko;
+}
 
 const LIENS: { route: Route; libelle: string }[] = [
   { route: "simulateur", libelle: "Simulateur" },
@@ -9,6 +25,7 @@ const LIENS: { route: Route; libelle: string }[] = [
 ];
 
 export function Layout({ route, children }: { route: Route; children: ReactNode }) {
+  const poids = usePoids();
   return (
     <div className="flex min-h-screen flex-col bg-fond text-encre">
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-filet bg-white px-4 py-4 sm:px-8">
@@ -41,7 +58,9 @@ export function Layout({ route, children }: { route: Route; children: ReactNode 
       <div className="flex-1">{children}</div>
       <footer className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-filet px-4 py-5 text-[13px] text-secondaire sm:px-8">
         <span>Prototype · Défi ADEME, Open Data University · Données ouvertes, sources dans Méthodologie</span>
-        <span>Aucun cookie, aucun traceur</span>
+        <span>
+          Aucun cookie, aucun traceur{poids !== null && <> · <span>{`Cette page pèse ${poids} Ko`}</span></>}
+        </span>
       </footer>
     </div>
   );

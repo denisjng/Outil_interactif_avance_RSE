@@ -50,7 +50,7 @@ export function Simulateur({ d }: { d: DonneesChargees }) {
     <main className="mx-auto max-w-[1240px] px-4 pb-14 pt-10 sm:px-8">
       <div className="mb-8 max-w-3xl">
         <p className="mb-2 text-[13px] font-semibold uppercase tracking-widest text-energie">Simulateur</p>
-        <h1 className="mb-3 font-titre text-4xl font-bold leading-tight">Combien pèse votre usage de l'IA sur un an ?</h1>
+        <h1 className="mb-3 font-titre text-4xl font-bold leading-tight">Combien pèse votre usage de l'IA sur un an&nbsp;?</h1>
         <p className="text-lg text-secondaire">
           Réglez votre usage. L'outil estime l'énergie, le carbone et l'eau, avec une fourchette basse et haute plutôt
           qu'un chiffre faussement précis.
@@ -138,7 +138,7 @@ export function Simulateur({ d }: { d: DonneesChargees }) {
             />
           </div>
 
-          <Encart ton="sombre" titre="À quoi ça correspond ?">
+          <Encart ton="sombre" titre={"À quoi ça correspond ?"}>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
               {equivalences(r, d.facteurs).map((e) => (
                 <div key={e.id} data-testid="equivalence" className="flex min-w-0 flex-col gap-1">

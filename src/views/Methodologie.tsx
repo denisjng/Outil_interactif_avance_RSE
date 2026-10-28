@@ -147,7 +147,7 @@ export function Methodologie({ d }: { d: DonneesChargees }) {
         </section>
 
         <section className="flex min-w-0 flex-[1_1_340px] flex-col gap-3 rounded-xl border border-filet bg-white p-6">
-          <h2 className="font-titre text-2xl font-bold">Le moteur est-il juste ?</h2>
+          <h2 className="font-titre text-2xl font-bold">Le moteur est-il juste&nbsp;?</h2>
           <figure className="flex flex-col gap-2">
             <Nuage points={points} />
             <figcaption className="text-[13px] text-secondaire">
