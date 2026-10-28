@@ -1,0 +1,77 @@
+# Sources de toutes les valeurs écrites dans public/data/.
+extrait_le: "2026-10-28"
+
+ecologits:
+  version: "0.11.3"
+  licence: "MPL-2.0"
+  url_llm: "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/impacts/llm.py"
+  url_modeles: "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/data/models.json"
+  url_fournisseurs: "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/tracers/utils.py"
+  url_mix: "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/data/electricity_mixes.json"
+
+ember:
+  url: "https://storage.googleapis.com/emb-prod-bkt-publicdata/public-downloads/yearly_full_release_long_format.csv"
+  page: "https://ember-energy.org/data/yearly-electricity-data/"
+  licence: "CC BY 4.0"
+
+aqueduct:
+  url: "https://files.wri.org/aqueduct/aqueduct-4-0-country-rankings.zip"
+  page: "https://www.wri.org/data/aqueduct-40-country-rankings"
+  licence: "CC BY 4.0"
+  indicateur: "bws"     # baseline water stress
+  ponderation: "Tot"    # tous usages confondus
+
+uptime:
+  pue_moyen_mondial: 1.56
+  source: "Uptime Institute, Global Data Center Survey 2024 (PUE moyen annuel)"
+  url: "https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2024"
+
+fournisseurs:
+  openai: "OpenAI"
+  google_genai: "Google"
+  anthropic: "Anthropic"
+  mistralai: "Mistral AI"
+  huggingface_hub: "Hugging Face (modèles ouverts)"
+
+# Modèles retenus : fournisseur et nom EcoLogits, libellé affiché.
+modeles:
+  - [openai, gpt-5, "GPT-5"]
+  - [openai, gpt-4o, "GPT-4o"]
+  - [openai, gpt-4o-mini, "GPT-4o mini"]
+  - [google_genai, gemini-2.5-pro, "Gemini 2.5 Pro"]
+  - [google_genai, gemini-2.5-flash, "Gemini 2.5 Flash"]
+  - [anthropic, claude-sonnet-4-5-20250929, "Claude Sonnet 4.5"]
+  - [mistralai, mistral-large-latest, "Mistral Large"]
+  - [mistralai, mistral-medium-latest, "Mistral Medium"]
+  - [mistralai, mistral-small-latest, "Mistral Small"]
+  - [huggingface_hub, openai/gpt-oss-120b, "gpt-oss 120B (ouvert)"]
+  - [huggingface_hub, openai/gpt-oss-20b, "gpt-oss 20B (ouvert)"]
+  - [huggingface_hub, meta-llama/Meta-Llama-3.1-70B-Instruct, "Llama 3.1 70B (ouvert)"]
+  - [huggingface_hub, meta-llama/Meta-Llama-3.1-8B-Instruct, "Llama 3.1 8B (ouvert)"]
+  - [huggingface_hub, mistralai/Mistral-7B-Instruct-v0.3, "Mistral 7B (ouvert)"]
+
+# Pays : code ISO 2 affiché, code ISO 3 des sources, nom français.
+pays:
+  - [FR, FRA, "France"]
+  - [DE, DEU, "Allemagne"]
+  - [IE, IRL, "Irlande"]
+  - [NL, NLD, "Pays-Bas"]
+  - [SE, SWE, "Suède"]
+  - [FI, FIN, "Finlande"]
+  - [PL, POL, "Pologne"]
+  - [ES, ESP, "Espagne"]
+  - [GB, GBR, "Royaume-Uni"]
+  - [US, USA, "États-Unis"]
+  - [CA, CAN, "Canada"]
+  - [CN, CHN, "Chine"]
+  - [IN, IND, "Inde"]
+  - [SG, SGP, "Singapour"]
+  - [JP, JPN, "Japon"]
+
+stress_hydrique:
+  "Low (<10%)": "faible"
+  "Low - Medium (10-20%)": "faible à moyen"
+  "Medium - High (20-40%)": "moyen à élevé"
+  "High (40-80%)": "élevé"
+  "Extremely High (>80%)": "extrêmement élevé"
+  "Arid and Low Water Use": "aride, faible usage"

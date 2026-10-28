@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "source": "EcoLogits 0.11.3 (PUE et WUE déclarés) ; PUE haut : Uptime Institute, Global Data Center Survey 2024 (PUE moyen annuel)",
+    "url": "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/tracers/utils.py",
+    "licence": "MPL-2.0",
+    "extrait_le": "2026-10-28"
+  },
+  "data": [
+    {
+      "id": "openai",
+      "nom": "OpenAI",
+      "pue": {
+        "bas": 1.2,
+        "central": 1.2,
+        "haut": 1.56
+      },
+      "wue": {
+        "bas": 0.569,
+        "central": 0.569,
+        "haut": 0.569
+      }
+    },
+    {
+      "id": "google_genai",
+      "nom": "Google",
+      "pue": {
+        "bas": 1.09,
+        "central": 1.09,
+        "haut": 1.56
+      },
+      "wue": {
+        "bas": 0.999,
+        "central": 0.999,
+        "haut": 0.999
+      }
+    },
+    {
+      "id": "anthropic",
+      "nom": "Anthropic",
+      "pue": {
+        "bas": 1.09,
+        "central": 1.115,
+        "haut": 1.56
+      },
+      "wue": {
+        "bas": 0.13,
+        "central": 0.5645,
+        "haut": 0.999
+      }
+    },
+    {
+      "id": "mistralai",
+      "nom": "Mistral AI",
+      "pue": {
+        "bas": 1.16,
+        "central": 1.16,
+        "haut": 1.56
+      },
+      "wue": {
+        "bas": 0.09,
+        "central": 0.09,
+        "haut": 0.09
+      }
+    },
+    {
+      "id": "huggingface_hub",
+      "nom": "Hugging Face (modèles ouverts)",
+      "pue": {
+        "bas": 1.09,
+        "central": 1.115,
+        "haut": 1.56
+      },
+      "wue": {
+        "bas": 0.13,
+        "central": 0.56,
+        "haut": 0.99
+      }
+    }
+  ]
+}

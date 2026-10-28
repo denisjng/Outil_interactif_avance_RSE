@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "source": "Ember Yearly Electricity Data (dernière année 2025, plage sur 3 ans) ; eau : EcoLogits 0.11.3 ; stress hydrique : WRI Aqueduct 4.0",
+    "url": "https://ember-energy.org/data/yearly-electricity-data/",
+    "licence": "CC BY 4.0 (Ember, Aqueduct), MPL-2.0 (EcoLogits)",
+    "extrait_le": "2026-10-28"
+  },
+  "data": [
+    {
+      "id": "FR",
+      "nom": "France",
+      "intensiteCarbone": {
+        "bas": 40.49,
+        "central": 41.45,
+        "haut": 53.26
+      },
+      "eauElectricite": {
+        "bas": 3.6737,
+        "central": 3.6737,
+        "haut": 3.6737
+      },
+      "stressHydrique": "faible à moyen"
+    },
+    {
+      "id": "DE",
+      "nom": "Allemagne",
+      "intensiteCarbone": {
+        "bas": 329.65,
+        "central": 329.65,
+        "haut": 363.59
+      },
+      "eauElectricite": {
+        "bas": 1.947,
+        "central": 1.947,
+        "haut": 1.947
+      },
+      "stressHydrique": "moyen à élevé"
+    },
+    {
+      "id": "IE",
+      "nom": "Irlande",
+      "intensiteCarbone": {
+        "bas": 255.9,
+        "central": 255.9,
+        "haut": 282.5
+      },
+      "eauElectricite": {
+        "bas": 1.4769,
+        "central": 1.4769,
+        "haut": 1.4769
+      },
+      "stressHydrique": "faible"
+    },
+    {
+      "id": "NL",
+      "nom": "Pays-Bas",
+      "intensiteCarbone": {
+        "bas": 250.72,
+        "central": 253.56,
+        "haut": 268.17
+      },
+      "eauElectricite": {
+        "bas": 3.433,
+        "central": 3.433,
+        "haut": 3.433
+      },
+      "stressHydrique": "faible à moyen"
+    },
+    {
+      "id": "SE",
+      "nom": "Suède",
+      "intensiteCarbone": {
+        "bas": 34.91,
+        "central": 35.35,
+        "haut": 38.42
+      },
+      "eauElectricite": {
+        "bas": 6.0315,
+        "central": 6.0315,
+        "haut": 6.0315
+      },
+      "stressHydrique": "faible"
+    },
+    {
+      "id": "FI",
+      "nom": "Finlande",
+      "intensiteCarbone": {
+        "bas": 57.47,
+        "central": 57.47,
+        "haut": 81.33
+      },
+      "eauElectricite": {
+        "bas": 4.5289,
+        "central": 4.5289,
+        "haut": 4.5289
+      },
+      "stressHydrique": "faible"
+    },
+    {
+      "id": "PL",
+      "nom": "Pologne",
+      "intensiteCarbone": {
+        "bas": 590.8,
+        "central": 590.8,
+        "haut": 650.86
+      },
+      "eauElectricite": {
+        "bas": 2.5135,
+        "central": 2.5135,
+        "haut": 2.5135
+      },
+      "stressHydrique": "faible à moyen"
+    },
+    {
+      "id": "ES",
+      "nom": "Espagne",
+      "intensiteCarbone": {
+        "bas": 146.22,
+        "central": 153.56,
+        "haut": 169.68
+      },
+      "eauElectricite": {
+        "bas": 6.2088,
+        "central": 6.2088,
+        "haut": 6.2088
+      },
+      "stressHydrique": "élevé"
+    },
+    {
+      "id": "GB",
+      "nom": "Royaume-Uni",
+      "intensiteCarbone": {
+        "bas": 216.5,
+        "central": 217.41,
+        "haut": 235.6
+      },
+      "eauElectricite": {
+        "bas": 2.329,
+        "central": 2.329,
+        "haut": 2.329
+      },
+      "stressHydrique": "faible à moyen"
+    },
+    {
+      "id": "US",
+      "nom": "États-Unis",
+      "intensiteCarbone": {
+        "bas": 383.81,
+        "central": 384.4,
+        "haut": 392.9
+      },
+      "eauElectricite": {
+        "bas": 3.1321,
+        "central": 3.1321,
+        "haut": 3.1321
+      },
+      "stressHydrique": "moyen à élevé"
+    },
+    {
+      "id": "CA",
+      "nom": "Canada",
+      "intensiteCarbone": {
+        "bas": 174.43,
+        "central": 190.73,
+        "haut": 190.73
+      },
+      "eauElectricite": {
+        "bas": 8.1662,
+        "central": 8.1662,
+        "haut": 8.1662
+      },
+      "stressHydrique": "faible à moyen"
+    },
+    {
+      "id": "CN",
+      "nom": "Chine",
+      "intensiteCarbone": {
+        "bas": 526.19,
+        "central": 526.19,
+        "haut": 583.25
+      },
+      "eauElectricite": {
+        "bas": 6.0065,
+        "central": 6.0065,
+        "haut": 6.0065
+      },
+      "stressHydrique": "moyen à élevé"
+    },
+    {
+      "id": "IN",
+      "nom": "Inde",
+      "intensiteCarbone": {
+        "bas": 670.55,
+        "central": 670.55,
+        "haut": 713.72
+      },
+      "eauElectricite": {
+        "bas": 3.4368,
+        "central": 3.4368,
+        "haut": 3.4368
+      },
+      "stressHydrique": "extrêmement élevé"
+    },
+    {
+      "id": "SG",
+      "nom": "Singapour",
+      "intensiteCarbone": {
+        "bas": 497.09,
+        "central": 497.09,
+        "haut": 500.87
+      },
+      "eauElectricite": {
+        "bas": 3.908,
+        "central": 3.908,
+        "haut": 3.908
+      },
+      "stressHydrique": null
+    },
+    {
+      "id": "JP",
+      "nom": "Japon",
+      "intensiteCarbone": {
+        "bas": 477.37,
+        "central": 477.37,
+        "haut": 492.6
+      },
+      "eauElectricite": {
+        "bas": 2.3063,
+        "central": 2.3063,
+        "haut": 2.3063
+      },
+      "stressHydrique": "faible à moyen"
+    }
+  ]
+}

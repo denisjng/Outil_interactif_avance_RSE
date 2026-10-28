@@ -1,0 +1,262 @@
+{
+  "meta": {
+    "source": "EcoLogits 0.11.3, data/models.json",
+    "url": "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/data/models.json",
+    "licence": "MPL-2.0",
+    "extrait_le": "2026-10-28"
+  },
+  "data": [
+    {
+      "id": "openai/gpt-5",
+      "nom": "GPT-5",
+      "fournisseurId": "openai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 30,
+        "central": 51.96152422706632,
+        "haut": 90
+      },
+      "paramsTotauxMd": {
+        "bas": 300,
+        "central": 300,
+        "haut": 300
+      },
+      "tps": 59.0,
+      "ttft": 5.13
+    },
+    {
+      "id": "openai/gpt-4o",
+      "nom": "GPT-4o",
+      "fournisseurId": "openai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 44,
+        "central": 76.2102355330306,
+        "haut": 132
+      },
+      "paramsTotauxMd": {
+        "bas": 440,
+        "central": 440,
+        "haut": 440
+      },
+      "tps": 74.0,
+      "ttft": 0.61
+    },
+    {
+      "id": "openai/gpt-4o-mini",
+      "nom": "GPT-4o mini",
+      "fournisseurId": "openai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 8,
+        "central": 14.966629547095765,
+        "haut": 28
+      },
+      "paramsTotauxMd": {
+        "bas": 8,
+        "central": 14.966629547095765,
+        "haut": 28
+      },
+      "tps": 79.0,
+      "ttft": 0.54
+    },
+    {
+      "id": "google_genai/gemini-2.5-pro",
+      "nom": "Gemini 2.5 Pro",
+      "fournisseurId": "google_genai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 200,
+        "central": 346.41016151377545,
+        "haut": 600
+      },
+      "paramsTotauxMd": {
+        "bas": 2000,
+        "central": 2000,
+        "haut": 2000
+      },
+      "tps": 91.8,
+      "ttft": 2.67
+    },
+    {
+      "id": "google_genai/gemini-2.5-flash",
+      "nom": "Gemini 2.5 Flash",
+      "fournisseurId": "google_genai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 44,
+        "central": 76.2102355330306,
+        "haut": 132
+      },
+      "paramsTotauxMd": {
+        "bas": 440,
+        "central": 440,
+        "haut": 440
+      },
+      "tps": 68.5,
+      "ttft": 1.14
+    },
+    {
+      "id": "anthropic/claude-sonnet-4-5-20250929",
+      "nom": "Claude Sonnet 4.5",
+      "fournisseurId": "anthropic",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 44,
+        "central": 76.2102355330306,
+        "haut": 132
+      },
+      "paramsTotauxMd": {
+        "bas": 440,
+        "central": 440,
+        "haut": 440
+      },
+      "tps": 42.0,
+      "ttft": 1.15
+    },
+    {
+      "id": "mistralai/mistral-large-latest",
+      "nom": "Mistral Large",
+      "fournisseurId": "mistralai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 41,
+        "central": 41,
+        "haut": 41
+      },
+      "paramsTotauxMd": {
+        "bas": 675,
+        "central": 675,
+        "haut": 675
+      },
+      "tps": 52.0,
+      "ttft": 0.68
+    },
+    {
+      "id": "mistralai/mistral-medium-latest",
+      "nom": "Mistral Medium",
+      "fournisseurId": "mistralai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 70,
+        "central": 91.6515138991168,
+        "haut": 120
+      },
+      "paramsTotauxMd": {
+        "bas": 70,
+        "central": 91.6515138991168,
+        "haut": 120
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "mistralai/mistral-small-latest",
+      "nom": "Mistral Small",
+      "fournisseurId": "mistralai",
+      "ouvert": false,
+      "paramsActifsMd": {
+        "bas": 8,
+        "central": 8,
+        "haut": 8
+      },
+      "paramsTotauxMd": {
+        "bas": 119,
+        "central": 119,
+        "haut": 119
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "huggingface_hub/openai/gpt-oss-120b",
+      "nom": "gpt-oss 120B (ouvert)",
+      "fournisseurId": "huggingface_hub",
+      "ouvert": true,
+      "paramsActifsMd": {
+        "bas": 5.1,
+        "central": 5.1,
+        "haut": 5.1
+      },
+      "paramsTotauxMd": {
+        "bas": 117,
+        "central": 117,
+        "haut": 117
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "huggingface_hub/openai/gpt-oss-20b",
+      "nom": "gpt-oss 20B (ouvert)",
+      "fournisseurId": "huggingface_hub",
+      "ouvert": true,
+      "paramsActifsMd": {
+        "bas": 3.6,
+        "central": 3.6,
+        "haut": 3.6
+      },
+      "paramsTotauxMd": {
+        "bas": 21,
+        "central": 21,
+        "haut": 21
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "huggingface_hub/meta-llama/Meta-Llama-3.1-70B-Instruct",
+      "nom": "Llama 3.1 70B (ouvert)",
+      "fournisseurId": "huggingface_hub",
+      "ouvert": true,
+      "paramsActifsMd": {
+        "bas": 70.55,
+        "central": 70.55,
+        "haut": 70.55
+      },
+      "paramsTotauxMd": {
+        "bas": 70.55,
+        "central": 70.55,
+        "haut": 70.55
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "huggingface_hub/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "nom": "Llama 3.1 8B (ouvert)",
+      "fournisseurId": "huggingface_hub",
+      "ouvert": true,
+      "paramsActifsMd": {
+        "bas": 8.03,
+        "central": 8.03,
+        "haut": 8.03
+      },
+      "paramsTotauxMd": {
+        "bas": 8.03,
+        "central": 8.03,
+        "haut": 8.03
+      },
+      "tps": null,
+      "ttft": null
+    },
+    {
+      "id": "huggingface_hub/mistralai/Mistral-7B-Instruct-v0.3",
+      "nom": "Mistral 7B (ouvert)",
+      "fournisseurId": "huggingface_hub",
+      "ouvert": true,
+      "paramsActifsMd": {
+        "bas": 7.25,
+        "central": 7.25,
+        "haut": 7.25
+      },
+      "paramsTotauxMd": {
+        "bas": 7.25,
+        "central": 7.25,
+        "haut": 7.25
+      },
+      "tps": null,
+      "ttft": null
+    }
+  ]
+}
