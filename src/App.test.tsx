@@ -32,3 +32,10 @@ it("une route inconnue affiche le simulateur", async () => {
   render(<App />);
   expect(await screen.findByRole("heading", { level: 1, name: /Combien pèse votre usage/ })).toBeInTheDocument();
 });
+
+it("une ancienne adresse (#/reduire) ouvre la vue Réduire", async () => {
+  vi.spyOn(charger, "chargerDonnees").mockResolvedValue(donneesChargeesTest);
+  window.location.hash = "#/leviers";
+  render(<App />);
+  expect(await screen.findByRole("heading", { level: 1, name: /Comment réduire/ })).toBeInTheDocument();
+});

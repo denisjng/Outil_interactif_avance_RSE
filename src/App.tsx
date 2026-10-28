@@ -11,7 +11,7 @@ import { Simulateur } from "./views/Simulateur";
 
 type Etat = { statut: "chargement" } | { statut: "erreur"; message: string } | { statut: "pret"; d: DonneesChargees };
 
-const VUES = { simulateur: Simulateur, discours: Discours, leviers: Leviers, methodologie: Methodologie };
+const VUES = { simuler: Simulateur, comparer: Discours, reduire: Leviers, methode: Methodologie };
 
 export default function App() {
   const route = useRoute();
