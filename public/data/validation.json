@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "source": "AI Energy Score, génération de texte (énergie GPU seule, 1000 requêtes, 10 tokens générés après lecture d'un texte long, batch 1, H100)",
+    "url": "https://huggingface.co/spaces/AIEnergyScore/Leaderboard",
+    "licence": "Apache-2.0 (AI Energy Score)",
+    "extrait_le": "2026-10-28"
+  },
+  "data": [
+    {
+      "modele": "berkeley-nest/Starling-LM-7B-alpha",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.019011
+    },
+    {
+      "modele": "Salesforce/xLAM-7b-r",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.01917
+    },
+    {
+      "modele": "CohereForAI/aya-23-8B",
+      "paramsMd": 8.0,
+      "tokens": 10,
+      "mesureWh": 0.017817
+    },
+    {
+      "modele": "allenai/OLMo-1.7-7B-hf",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.016831
+    },
+    {
+      "modele": "allenai/OLMo-1B-hf",
+      "paramsMd": 1.0,
+      "tokens": 10,
+      "mesureWh": 0.005594
+    },
+    {
+      "modele": "facebook/opt-2.7b",
+      "paramsMd": 2.7,
+      "tokens": 10,
+      "mesureWh": 0.00806
+    },
+    {
+      "modele": "mistralai/Mistral-7B-v0.1",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.01913
+    },
+    {
+      "modele": "mistralai/Ministral-8B-Instruct-2410",
+      "paramsMd": 8.0,
+      "tokens": 10,
+      "mesureWh": 0.020875
+    },
+    {
+      "modele": "tiiuae/falcon-7b",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.015875
+    },
+    {
+      "modele": "meta-llama/Meta-Llama-3-8B",
+      "paramsMd": 8.0,
+      "tokens": 10,
+      "mesureWh": 0.017333
+    },
+    {
+      "modele": "meta-llama/Llama-2-7b-hf",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.016441
+    },
+    {
+      "modele": "meta-llama/Meta-Llama-3.1-8B",
+      "paramsMd": 8.0,
+      "tokens": 10,
+      "mesureWh": 0.017376
+    },
+    {
+      "modele": "meta-llama/Llama-2-13b-hf",
+      "paramsMd": 13.0,
+      "tokens": 10,
+      "mesureWh": 0.026102
+    },
+    {
+      "modele": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "paramsMd": 1.7,
+      "tokens": 10,
+      "mesureWh": 0.007708
+    },
+    {
+      "modele": "HuggingFaceTB/SmolLM-1.7B",
+      "paramsMd": 1.7,
+      "tokens": 10,
+      "mesureWh": 0.007645
+    },
+    {
+      "modele": "google/gemma-2b",
+      "paramsMd": 2.0,
+      "tokens": 10,
+      "mesureWh": 0.00868
+    },
+    {
+      "modele": "google/gemma-7b",
+      "paramsMd": 7.0,
+      "tokens": 10,
+      "mesureWh": 0.0189
+    },
+    {
+      "modele": "google/gemma-2-2b-it",
+      "paramsMd": 2.0,
+      "tokens": 10,
+      "mesureWh": 0.018639
+    },
+    {
+      "modele": "01-ai/Yi-1.5-9B",
+      "paramsMd": 9.0,
+      "tokens": 10,
+      "mesureWh": 0.023001
+    },
+    {
+      "modele": "Qwen/QwQ-32B-Preview",
+      "paramsMd": 32.0,
+      "tokens": 10,
+      "mesureWh": 0.054556
+    },
+    {
+      "modele": "01-ai/Yi-1.5-34B",
+      "paramsMd": 34.0,
+      "tokens": 10,
+      "mesureWh": 0.056079
+    },
+    {
+      "modele": "crm-sf/TextBase-70B",
+      "paramsMd": 70.0,
+      "tokens": 10,
+      "mesureWh": 1.721556
+    },
+    {
+      "modele": "meta-llama/Meta-Llama-3-70B",
+      "paramsMd": 70.0,
+      "tokens": 10,
+      "mesureWh": 1.719656
+    },
+    {
+      "modele": "meta-llama/Llama-2-70b-hf",
+      "paramsMd": 70.0,
+      "tokens": 10,
+      "mesureWh": 1.648505
+    },
+    {
+      "modele": "Qwen/Qwen2.5-72B-Instruct",
+      "paramsMd": 72.0,
+      "tokens": 10,
+      "mesureWh": 1.869553
+    },
+    {
+      "modele": "google/gemma-3-4b-pt",
+      "paramsMd": 4.0,
+      "tokens": 10,
+      "mesureWh": 0.0343867
+    },
+    {
+      "modele": "tencent/Hunyuan-1.8B-Instruct",
+      "paramsMd": 1.8,
+      "tokens": 10,
+      "mesureWh": 0.0042
+    },
+    {
+      "modele": "Qwen/Qwen2.5-Coder-14B",
+      "paramsMd": 14.0,
+      "tokens": 10,
+      "mesureWh": 0.02712
+    },
+    {
+      "modele": "google/gemma-3-1b-pt",
+      "paramsMd": 1.0,
+      "tokens": 10,
+      "mesureWh": 0.01233
+    },
+    {
+      "modele": "HuggingFaceTB/SmolLM3-3B",
+      "paramsMd": 3.0,
+      "tokens": 10,
+      "mesureWh": 0.01835
+    },
+    {
+      "modele": "swiss-ai/Apertus-8B-Instruct-2509",
+      "paramsMd": 8.0,
+      "tokens": 10,
+      "mesureWh": 0.02174
+    },
+    {
+      "modele": "google/gemma-3-27b-pt",
+      "paramsMd": 27.0,
+      "tokens": 10,
+      "mesureWh": 0.05041
+    },
+    {
+      "modele": "Qwen/Qwen3-30B-A3B",
+      "paramsMd": 30.0,
+      "tokens": 10,
+      "mesureWh": 0.03738
+    },
+    {
+      "modele": "LGAI-EXAONE/EXAONE-4.0-32B",
+      "paramsMd": 32.0,
+      "tokens": 10,
+      "mesureWh": 0.05448
+    },
+    {
+      "modele": "Qwen/Qwen3-235B-A22B",
+      "paramsMd": 235.0,
+      "tokens": 10,
+      "mesureWh": 0.30581
+    },
+    {
+      "modele": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "paramsMd": 32.0,
+      "tokens": 10,
+      "mesureWh": 0.03664
+    },
+    {
+      "modele": "swiss-ai/Apertus-70B-Instruct-2509",
+      "paramsMd": 70.0,
+      "tokens": 10,
+      "mesureWh": 0.69752
+    },
+    {
+      "modele": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "paramsMd": 70.0,
+      "tokens": 10,
+      "mesureWh": 0.04953
+    }
+  ]
+}

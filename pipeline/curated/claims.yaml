@@ -1,0 +1,62 @@
+# Chiffres déclarés par les entreprises, par requête, et périmètre de chaque chiffre.
+# état : inclus | exclu | non-precise. Un poste que la source ne documente pas reste non-precise.
+
+google:
+  acteur: "Google"
+  modele: "Gemini (Apps)"
+  date: "août 2025"
+  perimetre: "Prompt texte médian"
+  energieWh: 0.24
+  carboneG: 0.03
+  eauMl: 0.26
+  fmti_colonne: "Google"
+  source: &google "https://arxiv.org/abs/2508.15734"
+  postes:
+    calcul: [inclus, "Énergie des accélérateurs (TPU) comptée.", *google]
+    serveur: [inclus, "CPU et mémoire de l'hôte comptés.", *google]
+    inactif: [inclus, "Capacité provisionnée inactive comptée.", *google]
+    pue: [inclus, "Surcoût du data center (PUE) compté.", *google]
+    eauSite: [inclus, "Eau du refroidissement des data centers comptée.", *google]
+    eauElectricite: [exclu, "L'eau consommée pour produire l'électricité n'est pas comptée.", *google]
+    fabrication: [non-precise, "Part de la fabrication du matériel non vérifiée dans le chiffre par prompt.", ""]
+    methodePublique: [inclus, "Méthode publiée en prépublication arXiv.", *google]
+
+openai:
+  acteur: "OpenAI"
+  modele: "ChatGPT"
+  date: "juin 2025"
+  perimetre: "Requête moyenne, billet de blog"
+  energieWh: 0.34
+  carboneG: null
+  eauMl: 0.32
+  fmti_colonne: "OpenAI"
+  source: &openai "https://blog.samaltman.com/the-gentle-singularity"
+  postes:
+    calcul: [non-precise, "Aucune méthode publiée.", ""]
+    serveur: [non-precise, "Aucune méthode publiée.", ""]
+    inactif: [non-precise, "Aucune méthode publiée.", ""]
+    pue: [non-precise, "Aucune méthode publiée.", ""]
+    eauSite: [non-precise, "Aucune méthode publiée.", ""]
+    eauElectricite: [non-precise, "Aucune méthode publiée.", ""]
+    fabrication: [non-precise, "Aucune méthode publiée.", ""]
+    methodePublique: [exclu, "Chiffres donnés dans un billet de blog, sans méthode.", *openai]
+
+mistral:
+  acteur: "Mistral AI"
+  modele: "Mistral Large 2"
+  date: "juillet 2025"
+  perimetre: "Réponse de 400 tokens, analyse de cycle de vie"
+  energieWh: null
+  carboneG: 1.14
+  eauMl: 45
+  fmti_colonne: "Mistral"
+  source: &mistral "https://mistral.ai/fr/news/our-contribution-to-a-global-environmental-standard-for-ai"
+  postes:
+    calcul: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    serveur: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    inactif: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    pue: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    eauSite: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    eauElectricite: [non-precise, "Détail par poste non publié dans la synthèse.", ""]
+    fabrication: [inclus, "Analyse de cycle de vie : fabrication du matériel comprise.", *mistral]
+    methodePublique: [inclus, "ACV réalisée avec Carbone 4 et l'ADEME, méthode résumée publiquement.", *mistral]

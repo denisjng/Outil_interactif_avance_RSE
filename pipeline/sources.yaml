@@ -26,6 +26,19 @@ comparia:
   page: "https://www.data.gouv.fr/datasets/compar-ia"
   licence: "Licence Ouverte 2.0 (Etalab)"
 
+fmti:
+  url: "https://raw.githubusercontent.com/stanford-crfm/fmti/main/Dec2025/Dec2025_scores.csv"
+  page: "https://github.com/stanford-crfm/fmti"
+  source: "Foundation Model Transparency Index, décembre 2025 (Stanford CRFM)"
+  licence: "voir dépôt stanford-crfm/fmti"
+
+aienergyscore:
+  url: "https://huggingface.co/spaces/AIEnergyScore/Leaderboard/resolve/main/data/energy/text_generation.csv"
+  page: "https://huggingface.co/spaces/AIEnergyScore/Leaderboard"
+  licence: "Apache-2.0 (AI Energy Score)"
+  tokens_generes: 10
+  protocole: "énergie GPU seule, 1000 requêtes, 10 tokens générés après lecture d'un texte long, batch 1, H100"
+
 uptime:
   pue_moyen_mondial: 1.56
   source: "Uptime Institute, Global Data Center Survey 2024 (PUE moyen annuel)"

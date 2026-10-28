@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "source": "Déclarations publiques (voir chaque poste) ; transparence : Foundation Model Transparency Index, décembre 2025 (Stanford CRFM)",
+    "url": "https://github.com/stanford-crfm/fmti",
+    "licence": "voir dépôt stanford-crfm/fmti",
+    "extrait_le": "2026-10-28"
+  },
+  "data": [
+    {
+      "id": "google",
+      "acteur": "Google",
+      "modele": "Gemini (Apps)",
+      "date": "août 2025",
+      "perimetre": "Prompt texte médian",
+      "energieWh": 0.24,
+      "carboneG": 0.03,
+      "eauMl": 0.26,
+      "source": "https://arxiv.org/abs/2508.15734",
+      "postes": {
+        "calcul": {
+          "etat": "inclus",
+          "justification": "Énergie des accélérateurs (TPU) comptée.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "serveur": {
+          "etat": "inclus",
+          "justification": "CPU et mémoire de l'hôte comptés.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "inactif": {
+          "etat": "inclus",
+          "justification": "Capacité provisionnée inactive comptée.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "pue": {
+          "etat": "inclus",
+          "justification": "Surcoût du data center (PUE) compté.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "eauSite": {
+          "etat": "inclus",
+          "justification": "Eau du refroidissement des data centers comptée.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "eauElectricite": {
+          "etat": "exclu",
+          "justification": "L'eau consommée pour produire l'électricité n'est pas comptée.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        },
+        "fabrication": {
+          "etat": "non-precise",
+          "justification": "Part de la fabrication du matériel non vérifiée dans le chiffre par prompt.",
+          "url": ""
+        },
+        "methodePublique": {
+          "etat": "inclus",
+          "justification": "Méthode publiée en prépublication arXiv.",
+          "url": "https://arxiv.org/abs/2508.15734"
+        }
+      },
+      "fmti": 41,
+      "fmtiEnvironnement": {
+        "energie": false,
+        "carbone": false,
+        "eau": false
+      }
+    },
+    {
+      "id": "openai",
+      "acteur": "OpenAI",
+      "modele": "ChatGPT",
+      "date": "juin 2025",
+      "perimetre": "Requête moyenne, billet de blog",
+      "energieWh": 0.34,
+      "carboneG": null,
+      "eauMl": 0.32,
+      "source": "https://blog.samaltman.com/the-gentle-singularity",
+      "postes": {
+        "calcul": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "serveur": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "inactif": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "pue": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "eauSite": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "eauElectricite": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "fabrication": {
+          "etat": "non-precise",
+          "justification": "Aucune méthode publiée.",
+          "url": ""
+        },
+        "methodePublique": {
+          "etat": "exclu",
+          "justification": "Chiffres donnés dans un billet de blog, sans méthode.",
+          "url": "https://blog.samaltman.com/the-gentle-singularity"
+        }
+      },
+      "fmti": 35,
+      "fmtiEnvironnement": {
+        "energie": false,
+        "carbone": false,
+        "eau": false
+      }
+    },
+    {
+      "id": "mistral",
+      "acteur": "Mistral AI",
+      "modele": "Mistral Large 2",
+      "date": "juillet 2025",
+      "perimetre": "Réponse de 400 tokens, analyse de cycle de vie",
+      "energieWh": null,
+      "carboneG": 1.14,
+      "eauMl": 45,
+      "source": "https://mistral.ai/fr/news/our-contribution-to-a-global-environmental-standard-for-ai",
+      "postes": {
+        "calcul": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "serveur": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "inactif": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "pue": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "eauSite": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "eauElectricite": {
+          "etat": "non-precise",
+          "justification": "Détail par poste non publié dans la synthèse.",
+          "url": ""
+        },
+        "fabrication": {
+          "etat": "inclus",
+          "justification": "Analyse de cycle de vie : fabrication du matériel comprise.",
+          "url": "https://mistral.ai/fr/news/our-contribution-to-a-global-environmental-standard-for-ai"
+        },
+        "methodePublique": {
+          "etat": "inclus",
+          "justification": "ACV réalisée avec Carbone 4 et l'ADEME, méthode résumée publiquement.",
+          "url": "https://mistral.ai/fr/news/our-contribution-to-a-global-environmental-standard-for-ai"
+        }
+      },
+      "fmti": 18,
+      "fmtiEnvironnement": {
+        "energie": false,
+        "carbone": false,
+        "eau": false
+      }
+    }
+  ]
+}

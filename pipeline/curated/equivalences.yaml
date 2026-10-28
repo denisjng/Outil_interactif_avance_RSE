@@ -1,0 +1,22 @@
+# Facteurs d'équivalence. parUnite est en Wh, gCO2e ou mL par unité.
+
+- id: voiture
+  libelle: "km en voiture thermique"
+  indicateur: carbone
+  parUnite: 142
+  source: "ADEME, Impact CO2 : voiture thermique, moyenne diesel, 0,142 kgCO2e/km (modélisation 2025)"
+  url: "https://impactco2.fr/outils/transport/voiturethermique"
+
+- id: douche
+  libelle: "douches de 60 L"
+  indicateur: eau
+  parUnite: 60000
+  source: "Unité de comparaison fixée par l'outil : une douche de 60 litres"
+  url: ""
+
+- id: smartphone
+  libelle: "recharges complètes d'une batterie de smartphone (15 Wh)"
+  indicateur: energie
+  parUnite: 15
+  source: "Unité de comparaison fixée par l'outil : batterie de 15 Wh, ordre de grandeur d'un smartphone récent"
+  url: ""
