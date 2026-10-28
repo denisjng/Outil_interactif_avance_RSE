@@ -21,6 +21,11 @@ aqueduct:
   indicateur: "bws"     # baseline water stress
   ponderation: "Tot"    # tous usages confondus
 
+comparia:
+  url: "https://ministere-culture.s3.sbg.io.cloud.ovh.net/COMPARIA/conversations.parquet"
+  page: "https://www.data.gouv.fr/datasets/compar-ia"
+  licence: "Licence Ouverte 2.0 (Etalab)"
+
 uptime:
   pue_moyen_mondial: 1.56
   source: "Uptime Institute, Global Data Center Survey 2024 (PUE moyen annuel)"

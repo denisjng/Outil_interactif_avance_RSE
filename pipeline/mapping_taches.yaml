@@ -1,0 +1,27 @@
+# Classement des conversations Compar:IA en types de tâche.
+# Les catégories de Compar:IA sont thématiques (sciences, éducation...), pas des types de tâche :
+# on classe donc chaque conversation d'après son premier message (opening_msg).
+# Une conversation est testée dans l'ordre ci-dessous et prend la première tâche qui correspond.
+# « motifs » : expressions régulières (insensibles à la casse) cherchées dans le premier message.
+# « mots_max » : nombre de mots maximal du premier message.
+# La tâche « conversation » regroupe toutes les conversations, pour un usage moyen.
+
+code:
+  nom: "Code"
+  motifs:
+    - "```"
+    - "\\b(python|javascript|typescript|java|sql|html|css|php|c\\+\\+|bash|regex)\\b"
+    - "\\b(code|script|fonction|bug|débogue|compile)\\b"
+
+redaction:
+  nom: "Rédaction longue"
+  motifs:
+    - "\\b(rédige|rédiger|écris|écrire|rédaction)\\b"
+    - "\\b(article|lettre|dissertation|discours|nouvelle|histoire|poème|courrier|rapport)\\b"
+
+question-courte:
+  nom: "Question courte"
+  mots_max: 12
+
+conversation:
+  nom: "Conversation"

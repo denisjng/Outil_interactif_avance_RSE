@@ -10,13 +10,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from etapes import ecologits, pays  # noqa: E402
+from etapes import comparia, ecologits, pays  # noqa: E402
 
 ETAPES = {
     "coefficients": ecologits.coefficients,
     "modeles": ecologits.modeles,
     "fournisseurs": ecologits.fournisseurs,
     "pays": pays.pays,
+    "taches": comparia.taches,
 }
 
 

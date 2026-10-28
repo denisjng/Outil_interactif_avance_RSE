@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "source": "Compar:IA, conversations (quantiles p25, p50, p75 des tokens par réponse ; types de tâche : pipeline/mapping_taches.yaml)",
+    "url": "https://www.data.gouv.fr/datasets/compar-ia",
+    "licence": "Licence Ouverte 2.0 (Etalab)",
+    "extrait_le": "2026-10-28",
+    "n": {
+      "question-courte": 310514,
+      "conversation": 813988,
+      "redaction": 91319,
+      "code": 42053
+    }
+  },
+  "data": [
+    {
+      "id": "question-courte",
+      "nom": "Question courte",
+      "tokens": {
+        "bas": 190,
+        "central": 457,
+        "haut": 786
+      }
+    },
+    {
+      "id": "conversation",
+      "nom": "Conversation",
+      "tokens": {
+        "bas": 304,
+        "central": 597,
+        "haut": 983
+      }
+    },
+    {
+      "id": "redaction",
+      "nom": "Rédaction longue",
+      "tokens": {
+        "bas": 386,
+        "central": 692,
+        "haut": 1136
+      }
+    },
+    {
+      "id": "code",
+      "nom": "Code",
+      "tokens": {
+        "bas": 489,
+        "central": 803,
+        "haut": 1315
+      }
+    }
+  ]
+}
