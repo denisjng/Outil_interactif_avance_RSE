@@ -1,0 +1,6 @@
+ecologits==0.11.3
+duckdb
+pandas
+pyyaml
+pytest
+requests

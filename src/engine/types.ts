@@ -7,6 +7,8 @@ export type Modele = {
   ouvert: boolean;
   paramsActifsMd: Triplet;
   paramsTotauxMd: Triplet;
+  tps: number | null; // tokens générés par seconde, quand EcoLogits le publie
+  ttft: number | null; // latence du premier token en secondes
 };
 
 export type Fournisseur = { id: string; nom: string; pue: Triplet; wue: Triplet };

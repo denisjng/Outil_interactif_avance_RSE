@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "source": "EcoLogits 0.11.3, ecologits/impacts/llm.py",
+    "url": "https://github.com/mlco2/ecologits/blob/v0.11.3/ecologits/impacts/llm.py",
+    "licence": "MPL-2.0",
+    "extrait_le": "2026-10-28"
+  },
+  "data": {
+    "model_quantization_bits": 16,
+    "gpu_energy_alpha": 1.1665273170451914e-06,
+    "gpu_energy_beta": -0.011205921025579175,
+    "gpu_energy_gamma": 4.052928146734005e-05,
+    "latency_alpha": 0.0006785088094353663,
+    "latency_beta": 0.0003119310311688259,
+    "latency_gamma": 0.019473717579473387,
+    "gpu_memory": 80,
+    "gpu_embodied_gwp": 273,
+    "server_gpu_count": 8,
+    "server_power": 1.2,
+    "server_embodied_gwp": 5700,
+    "server_lifetime": 94608000,
+    "batch_size": 64
+  }
+}
