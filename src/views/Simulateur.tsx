@@ -16,6 +16,8 @@ type EchelleId = (typeof ECHELLES)[number]["id"];
 
 const STRESS_ALERTE = ["élevé", "extrêmement élevé"];
 const nombre = (x: number) => x.toLocaleString("fr-FR", { maximumSignificantDigits: 2 });
+// Les équivalences dépassent le milliard à l'échelle de la France : « 670 Md » plutôt que 12 chiffres.
+const compact = (x: number) => x.toLocaleString("fr-FR", { notation: "compact", maximumSignificantDigits: 2 });
 
 export function Simulateur({ d }: { d: DonneesChargees }) {
   const { donnees } = d;
@@ -143,7 +145,7 @@ export function Simulateur({ d }: { d: DonneesChargees }) {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
               {equivalences(r, d.facteurs).map((e) => (
                 <div key={e.id} data-testid="equivalence" className="flex min-w-0 flex-col gap-1">
-                  <span className="font-chiffre text-2xl font-semibold">{nombre(e.valeur)}</span>
+                  <span className="font-chiffre text-2xl font-semibold">{compact(e.valeur)}</span>
                   <span className="text-sm text-[#C9D1CB]">{e.libelle}</span>
                 </div>
               ))}
