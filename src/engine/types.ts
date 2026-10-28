@@ -53,3 +53,25 @@ export type Resultat = {
 };
 
 export type Meta = { source: string; url: string; licence: string; extrait_le: string };
+
+export type EtatPoste = "inclus" | "exclu" | "non-precise";
+export type PosteId =
+  | "calcul" | "serveur" | "inactif" | "pue" | "eauSite" | "eauElectricite" | "fabrication" | "methodePublique";
+
+export type Claim = {
+  id: "google" | "openai" | "mistral";
+  acteur: string;
+  modele: string;
+  date: string;
+  perimetre: string;
+  energieWh: number | null;
+  carboneG: number | null;
+  eauMl: number | null;
+  source: string;
+  postes: Record<PosteId, { etat: EtatPoste; justification: string; url: string }>;
+  fmti: number | null;
+  fmtiEnvironnement: { energie: boolean; carbone: boolean; eau: boolean } | null;
+};
+
+// Mesure AI Energy Score : énergie GPU d'une requête, pour un modèle de taille connue.
+export type PointValidation = { modele: string; paramsMd: number; tokens: number; mesureWh: number };
