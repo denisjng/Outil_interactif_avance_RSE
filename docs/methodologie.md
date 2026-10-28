@@ -99,7 +99,7 @@ Un pays à électricité bas carbone n'est pas forcément sobre en eau : la Suè
 
 AI Energy Score publie l'énergie GPU mesurée sur des modèles ouverts (1000 requêtes, H100, 10 tokens générés après la lecture d'un texte long). La vue Méthodologie place chaque modèle sur un nuage de points, estimation du moteur contre mesure, avec PUE = 1 pour comparer le matériel seul.
 
-Les protocoles diffèrent : la lecture du texte d'entrée pèse lourd dans la mesure et n'est pas modélisée par EcoLogits. La comparaison vaut pour l'ordre de grandeur et la croissance avec la taille du modèle, et l'écart médian affiché ne doit pas être lu comme une marge d'erreur du simulateur.
+Les protocoles ne se comparent pas directement. La mesure est dominée par la lecture du texte d'entrée, que la méthode EcoLogits ne chiffre pas : l'écart est d'un à deux ordres de grandeur. Ce graphique ne valide donc pas le moteur. Il montre que les chiffres du simulateur sont plutôt un plancher dès que la question est longue (document collé, long historique). La fidélité du moteur à EcoLogits est vérifiée à part, par les tests (écart inférieur à 5 %).
 
 ## Équivalences
 

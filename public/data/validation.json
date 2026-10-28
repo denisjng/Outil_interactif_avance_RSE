@@ -199,22 +199,10 @@
       "mesureWh": 0.05041
     },
     {
-      "modele": "Qwen/Qwen3-30B-A3B",
-      "paramsMd": 30.0,
-      "tokens": 10,
-      "mesureWh": 0.03738
-    },
-    {
       "modele": "LGAI-EXAONE/EXAONE-4.0-32B",
       "paramsMd": 32.0,
       "tokens": 10,
       "mesureWh": 0.05448
-    },
-    {
-      "modele": "Qwen/Qwen3-235B-A22B",
-      "paramsMd": 235.0,
-      "tokens": 10,
-      "mesureWh": 0.30581
     },
     {
       "modele": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",

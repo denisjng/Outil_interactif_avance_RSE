@@ -53,7 +53,8 @@ def equivalences():
 
 def _parametres(nom: str) -> float | None:
     """Taille en milliards de paramètres lue dans le nom du modèle (« 8B », « 1.7B », « 360M »)."""
-    if re.search(r"\d+x\d+", nom):  # mélange d'experts : la taille du nom n'est pas le nombre de paramètres
+    # Mélange d'experts (« 8x7B », « 30B-A3B ») : la taille du nom n'est pas le nombre de paramètres actifs.
+    if re.search(r"\d+x\d+|-A\d+(\.\d+)?B", nom, re.IGNORECASE):
         return None
     m = re.search(r"(\d+(?:\.\d+)?)([BM])\b", nom.split("/")[-1], re.IGNORECASE)
     if not m:

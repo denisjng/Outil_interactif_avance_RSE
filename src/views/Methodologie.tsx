@@ -68,7 +68,7 @@ function Nuage({ points }: { points: PointCompare[] }) {
   }, [points]);
   return (
     <div ref={ref} role="img" className="overflow-x-auto"
-      aria-label={`Nuage de ${points.length} modèles : énergie estimée par le moteur en fonction de l'énergie mesurée par AI Energy Score, échelles logarithmiques`} />
+      aria-label={`Nuage de ${points.length} modèles : énergie estimée par le moteur en fonction de l'énergie mesurée par AI Energy Score, échelles logarithmiques ; les estimations sont nettement sous la diagonale`} />
   );
 }
 
@@ -147,17 +147,24 @@ export function Methodologie({ d }: { d: DonneesChargees }) {
         </section>
 
         <section className="flex min-w-0 flex-[1_1_340px] flex-col gap-3 rounded-xl border border-filet bg-white p-6">
-          <h2 className="font-titre text-2xl font-bold">Le moteur est-il juste&nbsp;?</h2>
+          <h2 className="font-titre text-2xl font-bold">Un angle mort : la lecture de la question</h2>
+          <p className="text-[13px] text-secondaire">
+            La fidélité du moteur à EcoLogits est vérifiée par des tests (écart inférieur à 5 %). Ce graphique pose une
+            autre question : que donne la méthode face à des mesures réelles ?
+          </p>
           <figure className="flex flex-col gap-2">
             <Nuage points={points} />
             <figcaption className="text-[13px] text-secondaire">
-              {points.length} modèles ouverts mesurés par AI Energy Score (GPU H100, 10 tokens générés après lecture
-              d'un texte long). Diagonale : estimation égale à la mesure ; écart médian entre les deux : {ecartMedian(points)} %.
+              {points.length} modèles ouverts mesurés par AI Energy Score (GPU H100, 10 tokens générés). Diagonale :
+              estimation égale à la mesure ; écart médian entre les deux : {ecartMedian(points)} %. La mesure inclut la
+              lecture du texte d'entrée, un long document, que la méthode EcoLogits ne compte pas : elle ne chiffre que
+              les tokens générés.
             </figcaption>
           </figure>
           <p className="text-[13px] text-secondaire">
-            Les protocoles diffèrent : AI Energy Score inclut la lecture du texte d'entrée, que la méthode EcoLogits ne
-            modélise pas. La comparaison vaut pour l'ordre de grandeur et la croissance avec la taille du modèle.
+            Les deux protocoles ne se comparent donc pas directement. L'écart d'un à deux ordres de grandeur montre
+            qu'une question longue (un document collé, un long historique de conversation) coûte plus que ce que le
+            simulateur affiche : ses chiffres sont plutôt un plancher.
           </p>
         </section>
       </div>

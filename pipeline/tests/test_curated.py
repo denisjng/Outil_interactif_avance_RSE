@@ -39,3 +39,10 @@ def test_equivalences(charger):
     facteurs = charger("equivalences.json")["data"]
     assert {f["indicateur"] for f in facteurs} == {"energie", "carbone", "eau"}
     assert all(f["parUnite"] > 0 and f["source"] for f in facteurs)
+
+
+def test_validation_sans_melange_d_experts(charger):
+    # Un nom « 30B-A3B » donne la taille totale, pas les paramètres actifs : ces modèles sont exclus.
+    import re
+    for p in charger("validation.json")["data"]:
+        assert not re.search(r"-A\d+(\.\d+)?B", p["modele"], re.IGNORECASE), p["modele"]
