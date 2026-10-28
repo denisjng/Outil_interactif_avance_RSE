@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.superpowers/
+pipeline/.cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
